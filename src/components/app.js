@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import PostsIndex from './posts_index'
+import PostsIndex from '../containers/posts_index';
+import PostsNew from './posts_new';
 
 export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Route path="/" component={PostsIndex} />
+          <Switch>
+            <Route path="/posts/new" component={PostsNew} />
+            <Route path="/" component={PostsIndex} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
